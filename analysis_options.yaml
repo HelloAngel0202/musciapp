@@ -1,0 +1,11 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  plugins:
+    - custom_lint # Enable custom lints
+
+linter:
+  rules:
+    - sort_constructors_first
+    - prefer_relative_imports
+    - prefer_single_quotes

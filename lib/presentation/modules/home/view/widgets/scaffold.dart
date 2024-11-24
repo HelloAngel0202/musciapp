@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:go_router/go_router.dart';
 import 'bottom_navigation_bar.dart';
 
 class HomeScaffold extends StatelessWidget {
@@ -12,7 +12,13 @@ class HomeScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future<void> goTo(HomeBottomNavigationBarItem item) async {}
+    Future<void> goTo(HomeBottomNavigationBarItem item) async {
+      context.go(item.routePath);
+
+
+
+
+    }
 
     return Scaffold(
       body: child,

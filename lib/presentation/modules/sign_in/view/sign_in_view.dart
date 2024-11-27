@@ -93,8 +93,14 @@ class SignInView extends StatelessWidget {
     switch(result){
       
       case Right _:
+      if (dialogContext!= null){
+
+        Navigator.pop(dialogContext!);
+      }
+
         context.go(redirect);
         case _:
+        
       
     }
 

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../core/either.dart';
+import '../../../../domain/failures/failure.dart';
+import '../../../../domain/models/user.dart';
 import '../../../extensions/extensions.dart';
+import '../../../global/blocs/session/session_bloc.dart';
 
 class SignInView extends StatelessWidget {
   const SignInView({
@@ -77,5 +82,22 @@ class SignInView extends StatelessWidget {
     );
   }
 
-  Future<void> _signIn(BuildContext context) async {}
+  Future<void> _signIn(BuildContext context) async {
+
+
+    final result= await sessionprovaider.read().singIn();
+    if(!context.mounted){
+      return;
+    }
+
+    switch(result){
+      
+      case Right _:
+        context.go(redirect);
+        case _:
+      
+    }
+
+  }
 }
+ 

@@ -20,7 +20,7 @@ class MainApp extends StatelessWidget {
           elevation: 0,
         ),
         colorScheme: const ColorScheme.dark().copyWith(
-          primary: Colors.blue,
+          primary: Colors.red,
         ),
         canvasColor: AppColors.dark,
         useMaterial3: true,
@@ -31,7 +31,7 @@ class MainApp extends StatelessWidget {
                 borderRadius: BorderRadius.circular(4),
               ),
             ),
-            backgroundColor: const MaterialStatePropertyAll(Colors.blue),
+            backgroundColor: const MaterialStatePropertyAll(Colors.red),
             foregroundColor: const MaterialStatePropertyAll(Colors.white),
           ),
         ),

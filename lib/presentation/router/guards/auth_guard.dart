@@ -11,6 +11,7 @@ Future<String?> authGuard(BuildContext context, GoRouterState state) async {
   if (user != null){
     return null;
   }
+  final redirect = state.uri.path;
 
-  return SignInRoute.path;
+  return '${SignInRoute.path}?redirect=$redirect';
 }

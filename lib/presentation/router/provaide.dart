@@ -16,6 +16,7 @@ final routerprovider = Provider(
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell){
           return HomeScaffold(
+            state: state,
             child:navigationShell,
             
             );

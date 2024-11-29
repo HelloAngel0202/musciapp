@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../domain/models/reel.dart';
+import '../../blocs/video_player/video_player_bloc.dart';
 import 'reel_viewer.dart';
 
 class ReelsPageView extends StatelessWidget {
@@ -13,7 +14,18 @@ class ReelsPageView extends StatelessWidget {
       scrollDirection: Axis.vertical,
       itemBuilder: (_, index) {
         final reel = reels[index];
-        return ReelViewer(reel: reel);
+
+        videoPlayersProvaider.setArguments(
+          
+          reel.mediaURL,
+          tag: reel.id,
+          
+          );
+        return ReelViewer(
+        reel: reel
+        
+        );
+           
       },
       itemCount: reels.length,
     );

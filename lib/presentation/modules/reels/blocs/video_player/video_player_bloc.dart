@@ -98,7 +98,7 @@ class VideoPlayerBloc extends StateNotifier<VideoPlayerState> {
 
     }
 
-     Future<void> pause() async {
+    Future<void> pause() async {
       state = loadedState.copyWith(
           paused: true,
 
@@ -106,6 +106,19 @@ class VideoPlayerBloc extends StateNotifier<VideoPlayerState> {
         );
 
     }
+    
+    Future<void> onPositionChaged(Duration position) async {
+     await controller.seekTo(position);
+       state = loadedState.copyWith(
+          position: position,
+
+        
+        );
+
+    }
+
+
+
 
     @override
     FutureOr<void> dispose(){
@@ -117,4 +130,3 @@ class VideoPlayerBloc extends StateNotifier<VideoPlayerState> {
   
   
 }
-

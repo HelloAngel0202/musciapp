@@ -6,6 +6,7 @@ import 'package:video_player/video_player.dart';
 import '../../../../../domain/models/reel.dart';
 import '../../blocs/video_player/video_player_bloc.dart';
 import '../../blocs/video_player/video_player_state.dart';
+import 'player_slider.dart';
 
 class ReelInfo extends StatelessWidget {
   const ReelInfo({super.key, required this.reel});
@@ -65,9 +66,10 @@ class ReelInfo extends StatelessWidget {
                 
                 );
                 return switch (bloc.state){
-                  VideoPlayerLodedState state => LinearProgressIndicator(
-                  value: state.position.inSeconds/state.duration.inSeconds,
-                  ),
+                  VideoPlayerLodedState state => VideoPlayerSlider(
+                    onChanged: bloc.onPositionChaged, 
+                    duration: state.duration, 
+                    position: state.position),
                   _=> SizedBox.shrink(),
                 };
 

@@ -18,10 +18,10 @@ class VideoPlayerSlider extends StatelessWidget {
       height: 4,
       child: SliderTheme(
         data: SliderThemeData(
-          trackShape: _SliderTrackShape(),
-          thumbShape: const RoundSliderThumbShape(
-            enabledThumbRadius: 2,
-          ),
+         // trackShape: _SliderTrackShape(),
+         // thumbShape: const RoundSliderThumbShape(
+         //   enabledThumbRadius: 2,
+         // ),
         ),
         child: Slider(
           thumbColor: Colors.white,

@@ -111,6 +111,7 @@ class VideoPlayerBloc extends StateNotifier<VideoPlayerState> {
     FutureOr<void> dispose(){
       controller.removeListener(_listener);
       controller.dispose();
+      //song -
      return super.dispose();
     }
   

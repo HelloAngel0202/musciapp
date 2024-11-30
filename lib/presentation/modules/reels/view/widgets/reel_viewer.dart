@@ -8,6 +8,7 @@ import '../../blocs/video_player/video_player_bloc.dart';
 import '../../blocs/video_player/video_player_state.dart';
 import 'actions.dart';
 import 'info.dart';
+import 'video_player.dart';
 
 class ReelViewer extends StatelessWidget {
   const ReelViewer({super.key, required this.reel});
@@ -42,20 +43,12 @@ class ReelViewer extends StatelessWidget {
                     
                     ),
                   ),
-                  VideoPlayerLodedState state=> SizedBox.expand(
-                    child: FittedBox(
-                      fit: BoxFit.cover,
-                      child: SizedBox(
-                        width: bloc.controller.value.size.width,
-                        height: bloc.controller.value.size.height,
-                        child: VideoPlayer(
-                          bloc.controller
-                          ),
-                      ),
-                    ),
-                  ),
-                  
-                 };
+                  VideoPlayerLodedState _=> MyvideoPlayer(
+                    
+                    controller: bloc.controller,
+                    
+                    
+                    )};
           },
           
           

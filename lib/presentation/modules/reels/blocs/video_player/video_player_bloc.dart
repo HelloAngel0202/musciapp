@@ -92,13 +92,12 @@ class VideoPlayerBloc extends StateNotifier<VideoPlayerState> {
       await controller.play();
        state = loadedState.copyWith(
           paused: false,
-
-        
         );
 
     }
 
     Future<void> pause() async {
+      await controller.pause();
       state = loadedState.copyWith(
           paused: true,
 

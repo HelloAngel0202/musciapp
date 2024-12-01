@@ -16,22 +16,14 @@ class ReelViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
-
     return Stack(
       children: [
-
         Consumer(
-          
           builder: (_,ref, __){
            final bloc = ref.watch(
-              
               videoPlayersProvaider,
               tag: reel.id,
- 
               );
-
               return switch(bloc.state){
                 videoPlayersLoadingstate _ => const Center (
                   child: CircularProgressIndicator(),
@@ -40,21 +32,46 @@ class ReelViewer extends StatelessWidget {
                   child: TextButton(
                     onPressed: bloc.init,
                     child: const Text('Retry'), 
-                    
-                    ),
-                  ),
-                  VideoPlayerLodedState _=> MyvideoPlayer(
-                    
+                ),
+              ),
+                  VideoPlayerLodedState _=> SizedBox.expand(child: MyvideoPlayer(
                     controller: bloc.controller,
-                    
-                    
-                    )};
+                  ),
+                  ),
+            };
           },
-          
-          
-          
         ),
-
+         Consumer(
+          builder: (_,ref, __){
+           final bloc = ref.watch(
+              videoPlayersProvaider,
+              tag: reel.id,
+              );
+              return switch(bloc.state){
+                  VideoPlayerLodedState state=> Positioned.fill(child:GestureDetector(
+                    onTap: (){
+                      if(state.paused){
+                        bloc.play();
+                      }else{
+                        bloc.pause();
+                      }
+                    },
+                    child:  Container(
+                        color: Colors.black26,
+                       child: state.paused? Center(
+                      child: Icon(
+                        Icons.play_arrow,
+                        size: 80,
+                      ),
+                        ):const SizedBox.shrink(),
+                      ),
+                   
+                ),
+                ),
+                _ => const SizedBox.shrink(),
+            };
+          },
+         ),
 
 
         Positioned(
@@ -68,6 +85,20 @@ class ReelViewer extends StatelessWidget {
           bottom: 40,
           child: ReelActions(reel: reel),
         ),
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
       ],
     );
   }

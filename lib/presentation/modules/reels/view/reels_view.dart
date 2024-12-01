@@ -18,17 +18,12 @@ class ReelsView extends StatelessWidget {
        final bloc =  ref.watch(reelsProvaider);
        return switch(bloc.state){
         ReelsloadingState _ => const Center(
-
           child: CircularProgressIndicator(),
-
-
         ),
-
         ReelsfailedStat _ =>  Center(
           child: TextButton(
             onPressed: bloc.init, 
             child: const Text('Retry')
-            
             ),
 
         ),

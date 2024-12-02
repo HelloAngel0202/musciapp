@@ -7,7 +7,7 @@ class SignInRoute {
   static const path = '/sign-in';
   static const name = 'Sign In';
 
-  static get route {
+  static GoRoute get route {
     return GoRoute(
       path: path,
       name: name,

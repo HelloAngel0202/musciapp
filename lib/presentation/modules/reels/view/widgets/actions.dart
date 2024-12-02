@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/screen_utils.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../domain/models/reel.dart';
 import '../../../../extensions/extensions.dart';
+import '../../../../router/routes/user_profile.dart';
+import '../../../home/view/widgets/scaffold.dart';
 
 class ReelActions extends StatelessWidget {
   const ReelActions({super.key, required this.reel});
@@ -14,10 +17,21 @@ class ReelActions extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          CircleAvatar(
+          InkWell(
+
+            onTap:(){
+              context.pushNamed(UserProfileRouter.name,
+              pathParameters:{
+                'userId':reel.autor.id,
+              },
+              
+              );
+            },
+            child:CircleAvatar(
             foregroundImage:
-                avatarPhotoURL != null ? NetworkImage(avatarPhotoURL) : null,
-          ),
+            avatarPhotoURL != null ? NetworkImage(avatarPhotoURL) : null,
+          ), 
+        ),
           30.h,
           ShadowView(
             child: Icon(

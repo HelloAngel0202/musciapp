@@ -7,7 +7,7 @@ class MessagesRoute {
   static const path = '/messages';
   static const name = 'Messages';
 
-  static get route {
+  static GoRoute get route {
     return GoRoute(
       path: path,
       name: name,

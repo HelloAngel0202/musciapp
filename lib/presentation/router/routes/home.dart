@@ -6,7 +6,7 @@ class HomeRoute {
   static const path = '/home';
   static const name = 'Home';
 
-   static get route {
+   static GoRoute get route {
     return GoRoute(
       path: path,
       name: name,

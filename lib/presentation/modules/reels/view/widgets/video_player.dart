@@ -31,6 +31,12 @@ class MyvideoPlayer extends StatelessWidget {
           bloc.pause();
          
           
+        }else{
+           final bloc = videoPlayersProvaider.read(
+            tag: reel.id,
+          );
+          bloc.play();
+
         }
 
       }, 

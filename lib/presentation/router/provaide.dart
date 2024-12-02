@@ -7,12 +7,14 @@ import 'routes/home.dart';
 import 'routes/messages.dart';
 import 'routes/profile.dart';
 import 'routes/sign_in.dart';
+import 'routes/user_profile.dart';
 
 final routerprovider = Provider(
   (ref)=> GoRouter(
     initialLocation: HomeRoute.path,
     routes: [
       SignInRoute.route,
+      UserProfileRouter.route,
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell){
           return HomeScaffold(

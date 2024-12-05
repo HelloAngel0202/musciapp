@@ -1,4 +1,4 @@
-# clon de  🎵tiktok
+# 🎵tiktok clone
 ✨watch videos as if it were the tiktok platform.
 
 ✨video animation.
